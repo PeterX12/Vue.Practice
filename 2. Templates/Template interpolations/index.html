@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <div id="app">
+        <p>
+            <strong>Bound:</strong><br>
+            <span>{{name}}</span>
+        </p>
+    
+        <p>
+            <strong>Passed:</strong><br>
+            <span v-html="name + '---'"></span>
+        </p>
+    
+        <p>
+            <strong>Unchangeable</strong><br>
+            <span v-once>{{name}}</span>
+        </p>
+    
+        <h5>Text</h5>
+        <textarea class="form-control"
+                  rows="3"
+                  v-model="name" ></textarea>
+    </div>
+    
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex"></script>
+<script src="data.js"></script>

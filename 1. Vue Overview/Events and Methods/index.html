@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <div class="container" id="app">
+        <nav class="navbar navbar-light bg-light fixed-top"
+             v-if="cart.length>0">
+            <div class="navbar-text ml-auto">
+                <b>Cart:</b>
+                <span class="badge badge-pill badge-success">{{cart.length}}</span>
+            </div>
+        </nav>
+
+        <div>
+            <label class="font-weight-bold mr-2" for="formMax">max</label>
+            <input type="text" id="formMax" class="form-control w-25" v-model="maximum">
+        </div>
+        <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
+        <div id="display-list" 
+             class="row d-flex mb-3 align-items-center" 
+             v-for="item in products" 
+             v-if="item.price<=Number(maximum)">
+            <div class="col-1 m-auto">
+                <button class="btn btn-info"
+                        @click="addItem(item)">+</button>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-fluid d-block" :src="item.image" :alt="item.name">
+            </div>
+            <div class="col">
+                <h3 class="text-info">{{item.name}}</h3>
+                <p class="mb-0">{{item.description}}</p>
+                <div class="h5 float-right">${{item.price}}</div>     
+            </div>
+            
+        </div>
+    </div>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex"></script>
+<script src="data.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: "Bamboo Thermal Ski Coat"
+        }
+    });
+</script> -->
+
